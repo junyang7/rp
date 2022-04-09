@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <style>
+        ::-webkit-scrollbar
+        {
+            width: 0;
+            height: 0;
+        }
+        @keyframes a
+        {
+            0%
+            {
+                transform: rotate(0deg);
+            }
+            50%
+            {
+                transform: rotate(180deg);
+            }
+            100%
+            {
+                transform: rotate(360deg);
+            }
+        }
+        .component
+        {
+            background-color: #f8f8f9;
+            user-select: none;
+            border: 1px solid #f8f8f9;
+        }
+        .component:hover
+        {
+            background-color: #f0f0f0;
+            cursor: move;
+            border: 1px solid #d9d9d9;
+        }
+    </style>
+</head>
+<body>
+<div id="RP" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: #f8f8f9;">
+    <div style="position: absolute;">
+        <!--编辑区-->
+        <div id="stage" style="z-index: 0; position: absolute; left: 250px; top: 250px;">
+            <iframe id="iframe" name="iframe" style="z-index: 0; position: absolute; width: 1400px; height: 800px; box-sizing: border-box; background-color: #ffffff; border: 10px solid #dcdee2;" src="/iframe.html"></iframe>
+            <div hidden id="iframeMask" style="z-index: 1; position: absolute; width: 1400px; height: 800px; box-sizing: border-box; border: 10px solid #dcdee2;"></div>
+        </div>
+        <!--功能区-->
+        <div style="z-index: 1000000; position: fixed; top: 50px; right: 50px; bottom: 50px; width: 280px; background-color: #ffffff; border: 1px solid #dcdee2; font-size: 12px;">
+            <!--组件区-->
+            <div style="height: 30px; width: 100%; background-color: #f8f8f9; display: flex; align-items: center; justify-content: space-between; padding: 0 10px; color: #808695; box-sizing: border-box;">
+                <div>组件</div>
+                <div>
+                    <i class="ri-arrow-down-s-line"></i>
+                </div>
+            </div>
+            <div id="component" style="display: flex; justify-content: flex-start; flex-direction: row; flex-wrap: wrap; box-sizing: border-box; padding-left: 10px;"></div>
+            <!--配置区-->
+            <div style="height: 30px; width: 100%; background-color: #f8f8f9; display: flex; align-items: center; justify-content: space-between; padding: 0 10px; color: #808695; box-sizing: border-box; border-top: 1px solid #dcdee2;">
+                <div>配置</div>
+                <div>
+                    <i class="ri-arrow-down-s-line"></i>
+                </div>
+            </div>
+            <div id="setting" style="display: flex; justify-content: flex-start; flex-direction: row; flex-wrap: wrap; box-sizing: border-box; padding: 0 10px;"></div>
+        </div>
+    </div>
+    <div class="ruler x" id="rulerT" style="z-index: 999999; user-select: none; position: sticky; top: 0; height: 50px; font-size: 0; white-space: nowrap; word-break: keep-all; float: top;"></div>
+    <div class="ruler y" id="rulerL" style="z-index: 999999; user-select: none; position: sticky; left: 0; margin-top: -100px; width: 50px; float: left;"></div>
+    <div class="ruler x" id="rulerB" style="z-index: 999999; user-select: none; position: sticky; top: calc(100% - 50px); height: 50px; font-size: 0; white-space: nowrap; word-break: keep-all; float: top;"></div>
+    <div class="ruler y" id="rulerR" style="z-index: 999999; user-select: none; position: sticky; left: calc(100% - 50px); margin-top: -100px; width: 50px; float: left;"></div>
+</div>
+<script src="/js/parent.js"></script>
+</body>
+</html>
